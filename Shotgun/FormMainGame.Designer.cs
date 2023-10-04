@@ -39,6 +39,7 @@
             buttonBlock = new Button();
             buttonReload = new Button();
             buttonShotgun = new Button();
+            labelEvents = new Label();
             SuspendLayout();
             // 
             // labelTitle
@@ -117,6 +118,7 @@
             buttonShoot.TabIndex = 8;
             buttonShoot.Text = "Shoot";
             buttonShoot.UseVisualStyleBackColor = true;
+            buttonShoot.Click += buttonShoot_Click;
             // 
             // buttonBlock
             // 
@@ -146,11 +148,21 @@
             buttonShotgun.Text = "Shotgun!";
             buttonShotgun.UseVisualStyleBackColor = true;
             // 
+            // labelEvents
+            // 
+            labelEvents.AutoSize = true;
+            labelEvents.Location = new Point(389, 187);
+            labelEvents.Name = "labelEvents";
+            labelEvents.Size = new Size(38, 15);
+            labelEvents.TabIndex = 12;
+            labelEvents.Text = "label2";
+            // 
             // FormMainGame
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(labelEvents);
             Controls.Add(buttonShotgun);
             Controls.Add(buttonReload);
             Controls.Add(buttonBlock);
@@ -181,5 +193,6 @@
         private Button buttonBlock;
         private Button buttonReload;
         private Button buttonShotgun;
+        private Label labelEvents;
     }
 }

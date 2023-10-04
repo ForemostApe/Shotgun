@@ -7,11 +7,17 @@ namespace Shotgun
         public FormMainGame()
         {
             InitializeComponent();
+
+
         }
 
         private void buttonReload_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonShoot_Click(object sender, EventArgs e)
+        {
 
         }
     }
