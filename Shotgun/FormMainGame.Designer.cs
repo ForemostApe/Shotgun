@@ -46,18 +46,20 @@
             // 
             labelTitle.AutoSize = true;
             labelTitle.Font = new Font("Impact", 48F, FontStyle.Regular, GraphicsUnit.Point);
-            labelTitle.Location = new Point(275, 25);
+            labelTitle.Location = new Point(511, 53);
+            labelTitle.Margin = new Padding(6, 0, 6, 0);
             labelTitle.Name = "labelTitle";
-            labelTitle.Size = new Size(273, 80);
+            labelTitle.Size = new Size(541, 156);
             labelTitle.TabIndex = 0;
             labelTitle.Text = "SHOTGUN";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(92, 328);
+            label1.Location = new Point(171, 700);
+            label1.Margin = new Padding(6, 0, 6, 0);
             label1.Name = "label1";
-            label1.Size = new Size(103, 15);
+            label1.Size = new Size(207, 32);
             label1.TabIndex = 1;
             label1.Text = "Amount of bullets";
             // 
@@ -65,28 +67,30 @@
             // 
             labelPlayerBulletCount.AutoSize = true;
             labelPlayerBulletCount.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            labelPlayerBulletCount.Location = new Point(104, 351);
+            labelPlayerBulletCount.Location = new Point(193, 749);
+            labelPlayerBulletCount.Margin = new Padding(6, 0, 6, 0);
             labelPlayerBulletCount.Name = "labelPlayerBulletCount";
-            labelPlayerBulletCount.Size = new Size(74, 32);
+            labelPlayerBulletCount.Size = new Size(0, 65);
             labelPlayerBulletCount.TabIndex = 3;
-            labelPlayerBulletCount.Text = "⦿⦿⦿";
             // 
             // labelCPUBulletCount
             // 
             labelCPUBulletCount.AutoSize = true;
             labelCPUBulletCount.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            labelCPUBulletCount.Location = new Point(633, 351);
+            labelCPUBulletCount.Location = new Point(1176, 749);
+            labelCPUBulletCount.Margin = new Padding(6, 0, 6, 0);
             labelCPUBulletCount.Name = "labelCPUBulletCount";
-            labelCPUBulletCount.Size = new Size(74, 32);
+            labelCPUBulletCount.Size = new Size(148, 65);
             labelCPUBulletCount.TabIndex = 5;
             labelCPUBulletCount.Text = "⦿⦿⦿";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(621, 328);
+            label4.Location = new Point(1153, 700);
+            label4.Margin = new Padding(6, 0, 6, 0);
             label4.Name = "label4";
-            label4.Size = new Size(103, 15);
+            label4.Size = new Size(207, 32);
             label4.TabIndex = 4;
             label4.Text = "Amount of bullets";
             // 
@@ -94,9 +98,10 @@
             // 
             labelPlayer.AutoSize = true;
             labelPlayer.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            labelPlayer.Location = new Point(106, 288);
+            labelPlayer.Location = new Point(197, 614);
+            labelPlayer.Margin = new Padding(6, 0, 6, 0);
             labelPlayer.Name = "labelPlayer";
-            labelPlayer.Size = new Size(73, 30);
+            labelPlayer.Size = new Size(149, 57);
             labelPlayer.TabIndex = 6;
             labelPlayer.Text = "Player";
             // 
@@ -104,17 +109,19 @@
             // 
             labelComputer.AutoSize = true;
             labelComputer.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            labelComputer.Location = new Point(616, 288);
+            labelComputer.Location = new Point(1144, 614);
+            labelComputer.Margin = new Padding(6, 0, 6, 0);
             labelComputer.Name = "labelComputer";
-            labelComputer.Size = new Size(111, 30);
+            labelComputer.Size = new Size(222, 57);
             labelComputer.TabIndex = 7;
             labelComputer.Text = "Computer";
             // 
             // buttonShoot
             // 
-            buttonShoot.Location = new Point(275, 307);
+            buttonShoot.Location = new Point(511, 655);
+            buttonShoot.Margin = new Padding(6);
             buttonShoot.Name = "buttonShoot";
-            buttonShoot.Size = new Size(75, 23);
+            buttonShoot.Size = new Size(139, 49);
             buttonShoot.TabIndex = 8;
             buttonShoot.Text = "Shoot";
             buttonShoot.UseVisualStyleBackColor = true;
@@ -122,18 +129,20 @@
             // 
             // buttonBlock
             // 
-            buttonBlock.Location = new Point(377, 306);
+            buttonBlock.Location = new Point(700, 653);
+            buttonBlock.Margin = new Padding(6);
             buttonBlock.Name = "buttonBlock";
-            buttonBlock.Size = new Size(75, 23);
+            buttonBlock.Size = new Size(139, 49);
             buttonBlock.TabIndex = 9;
             buttonBlock.Text = "Block";
             buttonBlock.UseVisualStyleBackColor = true;
             // 
             // buttonReload
             // 
-            buttonReload.Location = new Point(477, 306);
+            buttonReload.Location = new Point(886, 653);
+            buttonReload.Margin = new Padding(6);
             buttonReload.Name = "buttonReload";
-            buttonReload.Size = new Size(75, 23);
+            buttonReload.Size = new Size(139, 49);
             buttonReload.TabIndex = 10;
             buttonReload.Text = "Reload";
             buttonReload.UseVisualStyleBackColor = true;
@@ -141,9 +150,10 @@
             // 
             // buttonShotgun
             // 
-            buttonShotgun.Location = new Point(275, 343);
+            buttonShotgun.Location = new Point(511, 732);
+            buttonShotgun.Margin = new Padding(6);
             buttonShotgun.Name = "buttonShotgun";
-            buttonShotgun.Size = new Size(277, 66);
+            buttonShotgun.Size = new Size(514, 141);
             buttonShotgun.TabIndex = 11;
             buttonShotgun.Text = "Shotgun!";
             buttonShotgun.UseVisualStyleBackColor = true;
@@ -151,17 +161,18 @@
             // labelEvents
             // 
             labelEvents.AutoSize = true;
-            labelEvents.Location = new Point(389, 187);
+            labelEvents.Location = new Point(733, 368);
+            labelEvents.Margin = new Padding(6, 0, 6, 0);
             labelEvents.Name = "labelEvents";
-            labelEvents.Size = new Size(38, 15);
+            labelEvents.Size = new Size(78, 32);
             labelEvents.TabIndex = 12;
             labelEvents.Text = "label2";
             // 
             // FormMainGame
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1486, 960);
             Controls.Add(labelEvents);
             Controls.Add(buttonShotgun);
             Controls.Add(buttonReload);
@@ -174,6 +185,7 @@
             Controls.Add(labelPlayerBulletCount);
             Controls.Add(label1);
             Controls.Add(labelTitle);
+            Margin = new Padding(6);
             Name = "FormMainGame";
             Text = "FormMainGame";
             ResumeLayout(false);

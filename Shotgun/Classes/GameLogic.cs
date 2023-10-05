@@ -9,60 +9,46 @@ namespace Shotgun.Classes
 {
     public class GameLogic
     {
-        public int playerChoice { get; set; }
-        public int playerAmountOfBullets { get; set; }
-        public int cpuAmountOfBullets { get; set; }
-
-
         bool isOngoing = true;
 
         public GameLogic()
         {
-
-            Random random = new Random();
-            int cpuChoice = random.Next(1, 3);
-        }
-        public int Shoot(int bulletAmount)
-        {
-            playerChoice = 1;
-
-            if (bulletAmount > 0) bulletAmount--;
-            return bulletAmount;
-
-            }
-
-        //public void Block()
-        //{
-        //    playerChoice = 2;
-        //}
-
-        public int Reload(int bulletAmount)
-        {
-            playerChoice = 3;
-            if (bulletAmount < 3) bulletAmount++;
-            return bulletAmount;
         }
 
-        private void CheckOutcome(int player, int cpu)
+        private void CheckOutcome()
         {
-            if ((player == 1) && (cpu == 1) || (player == 1 && cpu == 2))
+            Player player = new Player();
+            Computer computer = new Computer();
+
+            if ((player.PlayerChoice == 1) && (computer.CpuChoice == 1) || (player.PlayerChoice == 1 && computer.CpuChoice == 2))
             {
-                Shoot(playerAmountOfBullets);
-                Shoot(cpuAmountOfBullets);
+                Shoot(player.PlayerAmountOfBullets);
+                Shoot(computer.CpuAmountOfBullets);
             }
-            else if  (player == 2 && cpu == 1)
+            else if  (player.PlayerChoice == 2 && computer.CpuChoice == 1)
             {
-                Shoot(cpuAmountOfBullets);
+                Shoot(computer.CpuAmountOfBullets);
             }
-            else if ((player == 1) && (cpu == 3)) //Här tar spelet slut, spelaren skjuter datorn.
+            else if ((player.PlayerChoice == 1) && (computer.CpuChoice == 3)) //Här tar spelet slut, spelaren skjuter datorn.
             {
                 GameOver("You");
             }
-            else if ((player == 3) && (cpu == 1)) //Här tar spelet slut, datorn skjuter spelaren.
+            else if ((player.PlayerChoice == 3) && (computer.CpuChoice == 1)) //Här tar spelet slut, datorn skjuter spelaren.
             {
                 GameOver("The computer");
             }
         }
+        public int Shoot(int bulletAmount)
+        {
+            if (bulletAmount > 0) bulletAmount--;
+            return bulletAmount;
+        }
+
+        public int Reload(int bulletAmount)
+        {
+            if (bulletAmount < 3) bulletAmount++;
+            return bulletAmount;
+            }
 
         public void GameOver(string winner)
         {
