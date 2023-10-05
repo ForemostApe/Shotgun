@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             labelTitle = new Label();
-            label1 = new Label();
+            labelPlayerAmountOfBullets = new Label();
             labelPlayerBulletCount = new Label();
             labelCPUBulletCount = new Label();
-            label4 = new Label();
+            labelCPUAmountOfBullets = new Label();
             labelPlayer = new Label();
             labelComputer = new Label();
             buttonShoot = new Button();
@@ -40,68 +40,63 @@
             buttonReload = new Button();
             buttonShotgun = new Button();
             labelEvents = new Label();
+            labelPlayerChoice = new Label();
+            labelCPUChoice = new Label();
             SuspendLayout();
             // 
             // labelTitle
             // 
             labelTitle.AutoSize = true;
             labelTitle.Font = new Font("Impact", 48F, FontStyle.Regular, GraphicsUnit.Point);
-            labelTitle.Location = new Point(511, 53);
-            labelTitle.Margin = new Padding(6, 0, 6, 0);
+            labelTitle.Location = new Point(275, 25);
             labelTitle.Name = "labelTitle";
-            labelTitle.Size = new Size(541, 156);
+            labelTitle.Size = new Size(273, 80);
             labelTitle.TabIndex = 0;
             labelTitle.Text = "SHOTGUN";
             // 
-            // label1
+            // labelPlayerAmountOfBullets
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(171, 700);
-            label1.Margin = new Padding(6, 0, 6, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(207, 32);
-            label1.TabIndex = 1;
-            label1.Text = "Amount of bullets";
+            labelPlayerAmountOfBullets.AutoSize = true;
+            labelPlayerAmountOfBullets.Location = new Point(92, 328);
+            labelPlayerAmountOfBullets.Name = "labelPlayerAmountOfBullets";
+            labelPlayerAmountOfBullets.Size = new Size(103, 15);
+            labelPlayerAmountOfBullets.TabIndex = 1;
+            labelPlayerAmountOfBullets.Text = "Amount of bullets";
             // 
             // labelPlayerBulletCount
             // 
             labelPlayerBulletCount.AutoSize = true;
             labelPlayerBulletCount.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            labelPlayerBulletCount.Location = new Point(193, 749);
-            labelPlayerBulletCount.Margin = new Padding(6, 0, 6, 0);
+            labelPlayerBulletCount.Location = new Point(104, 351);
             labelPlayerBulletCount.Name = "labelPlayerBulletCount";
-            labelPlayerBulletCount.Size = new Size(0, 65);
+            labelPlayerBulletCount.Size = new Size(0, 32);
             labelPlayerBulletCount.TabIndex = 3;
             // 
             // labelCPUBulletCount
             // 
             labelCPUBulletCount.AutoSize = true;
             labelCPUBulletCount.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            labelCPUBulletCount.Location = new Point(1176, 749);
-            labelCPUBulletCount.Margin = new Padding(6, 0, 6, 0);
+            labelCPUBulletCount.Location = new Point(633, 351);
             labelCPUBulletCount.Name = "labelCPUBulletCount";
-            labelCPUBulletCount.Size = new Size(148, 65);
+            labelCPUBulletCount.Size = new Size(0, 32);
             labelCPUBulletCount.TabIndex = 5;
-            labelCPUBulletCount.Text = "⦿⦿⦿";
             // 
-            // label4
+            // labelCPUAmountOfBullets
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(1153, 700);
-            label4.Margin = new Padding(6, 0, 6, 0);
-            label4.Name = "label4";
-            label4.Size = new Size(207, 32);
-            label4.TabIndex = 4;
-            label4.Text = "Amount of bullets";
+            labelCPUAmountOfBullets.AutoSize = true;
+            labelCPUAmountOfBullets.Location = new Point(621, 328);
+            labelCPUAmountOfBullets.Name = "labelCPUAmountOfBullets";
+            labelCPUAmountOfBullets.Size = new Size(103, 15);
+            labelCPUAmountOfBullets.TabIndex = 4;
+            labelCPUAmountOfBullets.Text = "Amount of bullets";
             // 
             // labelPlayer
             // 
             labelPlayer.AutoSize = true;
             labelPlayer.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            labelPlayer.Location = new Point(197, 614);
-            labelPlayer.Margin = new Padding(6, 0, 6, 0);
+            labelPlayer.Location = new Point(106, 288);
             labelPlayer.Name = "labelPlayer";
-            labelPlayer.Size = new Size(149, 57);
+            labelPlayer.Size = new Size(73, 30);
             labelPlayer.TabIndex = 6;
             labelPlayer.Text = "Player";
             // 
@@ -109,19 +104,17 @@
             // 
             labelComputer.AutoSize = true;
             labelComputer.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            labelComputer.Location = new Point(1144, 614);
-            labelComputer.Margin = new Padding(6, 0, 6, 0);
+            labelComputer.Location = new Point(616, 288);
             labelComputer.Name = "labelComputer";
-            labelComputer.Size = new Size(222, 57);
+            labelComputer.Size = new Size(111, 30);
             labelComputer.TabIndex = 7;
             labelComputer.Text = "Computer";
             // 
             // buttonShoot
             // 
-            buttonShoot.Location = new Point(511, 655);
-            buttonShoot.Margin = new Padding(6);
+            buttonShoot.Location = new Point(275, 307);
             buttonShoot.Name = "buttonShoot";
-            buttonShoot.Size = new Size(139, 49);
+            buttonShoot.Size = new Size(75, 23);
             buttonShoot.TabIndex = 8;
             buttonShoot.Text = "Shoot";
             buttonShoot.UseVisualStyleBackColor = true;
@@ -129,20 +122,19 @@
             // 
             // buttonBlock
             // 
-            buttonBlock.Location = new Point(700, 653);
-            buttonBlock.Margin = new Padding(6);
+            buttonBlock.Location = new Point(377, 306);
             buttonBlock.Name = "buttonBlock";
-            buttonBlock.Size = new Size(139, 49);
+            buttonBlock.Size = new Size(75, 23);
             buttonBlock.TabIndex = 9;
             buttonBlock.Text = "Block";
             buttonBlock.UseVisualStyleBackColor = true;
+            buttonBlock.Click += buttonBlock_Click;
             // 
             // buttonReload
             // 
-            buttonReload.Location = new Point(886, 653);
-            buttonReload.Margin = new Padding(6);
+            buttonReload.Location = new Point(477, 306);
             buttonReload.Name = "buttonReload";
-            buttonReload.Size = new Size(139, 49);
+            buttonReload.Size = new Size(75, 23);
             buttonReload.TabIndex = 10;
             buttonReload.Text = "Reload";
             buttonReload.UseVisualStyleBackColor = true;
@@ -150,29 +142,47 @@
             // 
             // buttonShotgun
             // 
-            buttonShotgun.Location = new Point(511, 732);
-            buttonShotgun.Margin = new Padding(6);
+            buttonShotgun.Enabled = false;
+            buttonShotgun.Location = new Point(275, 343);
             buttonShotgun.Name = "buttonShotgun";
-            buttonShotgun.Size = new Size(514, 141);
+            buttonShotgun.Size = new Size(277, 66);
             buttonShotgun.TabIndex = 11;
             buttonShotgun.Text = "Shotgun!";
             buttonShotgun.UseVisualStyleBackColor = true;
+            buttonShotgun.Click += buttonShotgun_Click;
             // 
             // labelEvents
             // 
             labelEvents.AutoSize = true;
-            labelEvents.Location = new Point(733, 368);
-            labelEvents.Margin = new Padding(6, 0, 6, 0);
+            labelEvents.Location = new Point(345, 196);
             labelEvents.Name = "labelEvents";
-            labelEvents.Size = new Size(78, 32);
+            labelEvents.Size = new Size(0, 15);
             labelEvents.TabIndex = 12;
-            labelEvents.Text = "label2";
+            labelEvents.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // labelPlayerChoice
+            // 
+            labelPlayerChoice.AutoSize = true;
+            labelPlayerChoice.Location = new Point(111, 155);
+            labelPlayerChoice.Name = "labelPlayerChoice";
+            labelPlayerChoice.Size = new Size(0, 15);
+            labelPlayerChoice.TabIndex = 13;
+            // 
+            // labelCPUChoice
+            // 
+            labelCPUChoice.AutoSize = true;
+            labelCPUChoice.Location = new Point(642, 155);
+            labelCPUChoice.Name = "labelCPUChoice";
+            labelCPUChoice.Size = new Size(0, 15);
+            labelCPUChoice.TabIndex = 14;
             // 
             // FormMainGame
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1486, 960);
+            ClientSize = new Size(800, 450);
+            Controls.Add(labelCPUChoice);
+            Controls.Add(labelPlayerChoice);
             Controls.Add(labelEvents);
             Controls.Add(buttonShotgun);
             Controls.Add(buttonReload);
@@ -181,11 +191,10 @@
             Controls.Add(labelComputer);
             Controls.Add(labelPlayer);
             Controls.Add(labelCPUBulletCount);
-            Controls.Add(label4);
+            Controls.Add(labelCPUAmountOfBullets);
             Controls.Add(labelPlayerBulletCount);
-            Controls.Add(label1);
+            Controls.Add(labelPlayerAmountOfBullets);
             Controls.Add(labelTitle);
-            Margin = new Padding(6);
             Name = "FormMainGame";
             Text = "FormMainGame";
             ResumeLayout(false);
@@ -195,10 +204,10 @@
         #endregion
 
         private Label labelTitle;
-        private Label label1;
+        private Label labelPlayerAmountOfBullets;
         private Label labelPlayerBulletCount;
         private Label labelCPUBulletCount;
-        private Label label4;
+        private Label labelCPUAmountOfBullets;
         private Label labelPlayer;
         private Label labelComputer;
         private Button buttonShoot;
@@ -206,5 +215,7 @@
         private Button buttonReload;
         private Button buttonShotgun;
         private Label labelEvents;
+        private Label labelPlayerChoice;
+        private Label labelCPUChoice;
     }
 }

@@ -11,37 +11,44 @@ namespace Shotgun.Classes
     public class Computer
     {
         public int CpuChoice { get; set; }
-        public int CpuAmountOfBullets { get; set; }
+        public int AmountOfBullets { get; set; }
 
-        public void GenerateCpuMove()
+        public Computer()
+        {
+        }
+
+        public int GenerateCpuMove()
         {
             Random random = new Random();
-            CpuChoice = random.Next(0, 3);
+            CpuChoice = random.Next(1, 4);
 
-            if (CpuAmountOfBullets == 3) Shotgun();
-            else if (CpuChoice == 1 && CpuAmountOfBullets > 0) Shoot();
-            else if (CpuChoice == 2) Block();
-            else if (CpuChoice == 3 && CpuAmountOfBullets < 3) Reload();
+            if (AmountOfBullets == 3) Shotgun();
+            else if (CpuChoice == 1 && AmountOfBullets > 0) Shoot();
+            //else if (CpuChoice == 2) Block();
+            else if (CpuChoice == 2);
+            else if (CpuChoice == 3 && AmountOfBullets < 3) Reload();
             else GenerateCpuMove();
+
+            return CpuChoice;
         }
 
         
         private void Shoot()
         {
             GameLogic gameLogic = new GameLogic();
-            CpuAmountOfBullets = gameLogic.Shoot(CpuAmountOfBullets);
+            AmountOfBullets = gameLogic.Shoot(AmountOfBullets);
         }
-        private void Block()
-        {
-        }
+        //private void Block()
+        //{
+        //}
         public void Reload()
         {
             GameLogic gameLogic = new GameLogic();
-            CpuAmountOfBullets = gameLogic.Reload(CpuAmountOfBullets);
+            AmountOfBullets = gameLogic.Reload(AmountOfBullets);
         }
         private void Shotgun()
         {
-
+            MessageBox.Show("Shotgun");
         }
     }
 

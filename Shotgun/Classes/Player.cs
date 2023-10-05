@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.Devices;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Permissions;
@@ -9,16 +10,22 @@ namespace Shotgun.Classes
 {
     public class Player
     {
+
         public int PlayerChoice { get; set; }
-        public int PlayerAmountOfBullets { get; set; }
-    
-        public void Shoot()
+        public int AmountOfBullets { get; set; }
+
+        public Player()
         {
-            PlayerChoice = 1;
-            GameLogic gameLogic = new GameLogic();
-            PlayerAmountOfBullets = gameLogic.Shoot(PlayerAmountOfBullets);
         }
-        private void Block()
+
+        public int Shoot()
+        {
+                PlayerChoice = 1;
+                GameLogic gameLogic = new GameLogic();
+                return AmountOfBullets = gameLogic.Shoot(AmountOfBullets);
+        }
+
+        public void Block()
         {
             PlayerChoice = 2;
         }
@@ -26,8 +33,9 @@ namespace Shotgun.Classes
         public void Reload()
         { 
             PlayerChoice = 3;
+            if (AmountOfBullets < 3);
             GameLogic gameLogic = new GameLogic();
-            PlayerAmountOfBullets = gameLogic.Reload(PlayerAmountOfBullets);
+            AmountOfBullets = gameLogic.Reload(AmountOfBullets);
         }
     }
 
