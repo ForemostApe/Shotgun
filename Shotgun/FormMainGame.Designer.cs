@@ -48,7 +48,7 @@
             // 
             labelTitle.AutoSize = true;
             labelTitle.Font = new Font("Impact", 48F, FontStyle.Regular, GraphicsUnit.Point);
-            labelTitle.Location = new Point(275, 25);
+            labelTitle.Location = new Point(279, 25);
             labelTitle.Name = "labelTitle";
             labelTitle.Size = new Size(273, 80);
             labelTitle.TabIndex = 0;
@@ -153,10 +153,9 @@
             // 
             // labelEvents
             // 
-            labelEvents.AutoSize = true;
-            labelEvents.Location = new Point(345, 196);
+            labelEvents.Location = new Point(275, 105);
             labelEvents.Name = "labelEvents";
-            labelEvents.Size = new Size(0, 15);
+            labelEvents.Size = new Size(273, 178);
             labelEvents.TabIndex = 12;
             labelEvents.TextAlign = ContentAlignment.MiddleCenter;
             // 

@@ -102,7 +102,7 @@ namespace Shotgun
             {
                 labelPlayerBulletCount.Text = "⦿ ⦿ ⦿";
             }
-            
+
         }
 
         private void ShotgunButtonEnabler()

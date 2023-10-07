@@ -25,7 +25,6 @@ namespace Shotgun.Classes
             if (AmountOfBullets == 3) Shotgun();
             else if (CpuChoice == 1 && AmountOfBullets > 0) Shoot();
             //else if (CpuChoice == 2) Block();
-            else if (CpuChoice == 2);
             else if (CpuChoice == 3 && AmountOfBullets < 3) Reload();
             else GenerateCpuMove();
 
@@ -38,9 +37,11 @@ namespace Shotgun.Classes
             GameLogic gameLogic = new GameLogic();
             AmountOfBullets = gameLogic.Shoot(AmountOfBullets);
         }
+
         //private void Block()
         //{
         //}
+
         public void Reload()
         {
             GameLogic gameLogic = new GameLogic();
