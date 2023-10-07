@@ -1,5 +1,4 @@
 ﻿using Shotgun.Classes;
-using System.Numerics;
 
 namespace Shotgun
 {
@@ -23,8 +22,8 @@ namespace Shotgun
                 player.Shoot();
                 labelPlayerChoice.Text = "Player shot";
                 labelCPUChoice.Text = CPUChoice(computer.GenerateCpuMove());
-                BulletUpdater();
                 ShowEvents(gameLogic.CheckOutcome(player.PlayerChoice, computer.CpuChoice));
+                BulletUpdater();
                 ShotgunButtonEnabler();
                 GameOver();
             }
@@ -34,7 +33,6 @@ namespace Shotgun
                 labelPlayerChoice.Text = "";
                 labelCPUChoice.Text = "";
             }
-
         }
 
         private void buttonBlock_Click(object sender, EventArgs e)
@@ -43,8 +41,6 @@ namespace Shotgun
             labelPlayerChoice.Text = "Player blocked";
             labelCPUChoice.Text = CPUChoice(computer.GenerateCpuMove());
             ShowEvents(gameLogic.CheckOutcome(player.PlayerChoice, computer.CpuChoice));
-            //PlayerBulletUpdater();
-            //ComputerBulletUpdater();
             BulletUpdater();
             GameOver();
         }
@@ -56,8 +52,8 @@ namespace Shotgun
                 player.Reload();
                 labelPlayerChoice.Text = "Player reloaded";
                 labelCPUChoice.Text = CPUChoice(computer.GenerateCpuMove());
-                BulletUpdater();
                 ShowEvents(gameLogic.CheckOutcome(player.PlayerChoice, computer.CpuChoice));
+                BulletUpdater();
                 ShotgunButtonEnabler();
                 GameOver();
             }
@@ -67,7 +63,6 @@ namespace Shotgun
                 labelPlayerChoice.Text = "";
                 labelCPUChoice.Text = "";
             }
-
         }
 
         private void buttonShotgun_Click(object sender, EventArgs e)
@@ -80,12 +75,16 @@ namespace Shotgun
             GameOver();
         }
 
-
         private void buttonRestart_Click(object sender, EventArgs e)
         {
             NewGame();
         }
 
+        private void buttonCloseApp_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        
         #endregion
 
         #region Methods
@@ -110,6 +109,9 @@ namespace Shotgun
         }
 
         private void BulletUpdater()
+
+            //Egentligen skulle jag vilja kunna skjuta in en string som anger antingen 'player' eller 'computer' och peta in den så det inte behövs två if-satser
+            //men står helt still just nu.
         {
             if (player.AmountOfBullets == 0)
             {
@@ -158,7 +160,7 @@ namespace Shotgun
             labelEvents.Text = displayEvent;
         }
 
-        private void GameOver()
+        private void GameOver() //Det här känns som det borde vara en While-loop och inte en metod som måste initieras hela tiden.
         {
             if (!gameLogic.isOngoing)
             {
@@ -194,12 +196,6 @@ namespace Shotgun
 
             BulletUpdater();
         }
-
         #endregion
-
-        private void buttonCloseApp_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
     }
 }
