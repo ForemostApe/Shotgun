@@ -147,6 +147,7 @@
             // 
             // labelEvents
             // 
+            labelEvents.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             labelEvents.Location = new Point(236, 105);
             labelEvents.Name = "labelEvents";
             labelEvents.Size = new Size(273, 178);
@@ -156,6 +157,7 @@
             // labelPlayerChoice
             // 
             labelPlayerChoice.AutoSize = true;
+            labelPlayerChoice.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             labelPlayerChoice.Location = new Point(61, 155);
             labelPlayerChoice.Name = "labelPlayerChoice";
             labelPlayerChoice.Size = new Size(0, 15);
@@ -164,6 +166,7 @@
             // labelCPUChoice
             // 
             labelCPUChoice.AutoSize = true;
+            labelCPUChoice.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             labelCPUChoice.Location = new Point(596, 155);
             labelCPUChoice.Name = "labelCPUChoice";
             labelCPUChoice.Size = new Size(0, 15);
