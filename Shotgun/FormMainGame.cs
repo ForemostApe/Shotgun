@@ -23,8 +23,7 @@ namespace Shotgun
                 player.Shoot();
                 labelPlayerChoice.Text = "Player shot";
                 labelCPUChoice.Text = CPUChoice(computer.GenerateCpuMove());
-                PlayerBulletUpdater();
-                ComputerBulletUpdater();
+                BulletUpdater();
                 ShowEvents(gameLogic.CheckOutcome(player.PlayerChoice, computer.CpuChoice));
                 ShotgunButtonEnabler();
                 GameOver();
@@ -44,8 +43,9 @@ namespace Shotgun
             labelPlayerChoice.Text = "Player blocked";
             labelCPUChoice.Text = CPUChoice(computer.GenerateCpuMove());
             ShowEvents(gameLogic.CheckOutcome(player.PlayerChoice, computer.CpuChoice));
-            PlayerBulletUpdater();
-            ComputerBulletUpdater();
+            //PlayerBulletUpdater();
+            //ComputerBulletUpdater();
+            BulletUpdater();
             GameOver();
         }
 
@@ -56,8 +56,7 @@ namespace Shotgun
                 player.Reload();
                 labelPlayerChoice.Text = "Player reloaded";
                 labelCPUChoice.Text = CPUChoice(computer.GenerateCpuMove());
-                PlayerBulletUpdater();
-                ComputerBulletUpdater();
+                BulletUpdater();
                 ShowEvents(gameLogic.CheckOutcome(player.PlayerChoice, computer.CpuChoice));
                 ShotgunButtonEnabler();
                 GameOver();
@@ -76,8 +75,7 @@ namespace Shotgun
             player.Shotgun();
             labelPlayerChoice.Text = "Player used shotgun";
             labelCPUChoice.Text = CPUChoice(computer.GenerateCpuMove());
-            PlayerBulletUpdater();
-            ComputerBulletUpdater();
+            BulletUpdater();
             ShowEvents(gameLogic.CheckOutcome(player.PlayerChoice, computer.CpuChoice));
             GameOver();
         }
@@ -111,7 +109,7 @@ namespace Shotgun
             }
         }
 
-        private void PlayerBulletUpdater()
+        private void BulletUpdater()
         {
             if (player.AmountOfBullets == 0)
             {
@@ -130,16 +128,6 @@ namespace Shotgun
                 labelPlayerBulletCount.Text = "⦿ ⦿ ⦿";
             }
 
-        }
-
-        private void ShotgunButtonEnabler()
-        {
-            if (player.AmountOfBullets >= 3) buttonShotgun.Enabled = true;
-            else buttonShotgun.Enabled = false;
-        }
-
-        private void ComputerBulletUpdater()
-        {
             if (computer.AmountOfBullets == 0)
             {
                 labelCPUBulletCount.Text = "";
@@ -156,6 +144,13 @@ namespace Shotgun
             {
                 labelCPUBulletCount.Text = "⦿ ⦿ ⦿";
             }
+
+        }
+
+        private void ShotgunButtonEnabler()
+        {
+            if (player.AmountOfBullets >= 3) buttonShotgun.Enabled = true;
+            else buttonShotgun.Enabled = false;
         }
 
         private void ShowEvents(string displayEvent)
@@ -197,8 +192,7 @@ namespace Shotgun
 
             labelEvents.Text = "";
 
-            PlayerBulletUpdater();
-            ComputerBulletUpdater();
+            BulletUpdater();
         }
 
         #endregion
