@@ -9,8 +9,10 @@ namespace Shotgun.Classes
 {
     public class GameLogic
     {
+        public  bool isOngoing { get; set; }
         public GameLogic()
         {
+            isOngoing = true;
         }
 
         public string CheckOutcome(int x, int y)
@@ -38,10 +40,12 @@ namespace Shotgun.Classes
             }
             if ((x == 1) && (y == 3)) //Här tar spelet slut, spelaren skjuter datorn.
             {
+                isOngoing = false;
                 return "You shot the computer while it was reloading!\nYou win!";
             }
             if ((x == 3) && (y == 1)) //Här tar spelet slut, datorn skjuter spelaren.
             {
+                isOngoing = false;
                 return "The computer shot you while you were reloading!\nYou lose!";
             }
             if ((x == 2) && (y == 3))
@@ -55,10 +59,12 @@ namespace Shotgun.Classes
 
             if ((x == 4) && (y != 4))
             {
+                isOngoing = false;
                 return "You blast the computer with a shotgun-blast!\nYou win!";
             }
             if ((x != 4) && (y == 4))
             {
+                isOngoing = false;
                 return "The computer blasts you with a shotgun-blast!\nYou lose!";
             }
             return "Something went wrong!";

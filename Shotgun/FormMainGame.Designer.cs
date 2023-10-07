@@ -42,6 +42,8 @@
             labelEvents = new Label();
             labelPlayerChoice = new Label();
             labelCPUChoice = new Label();
+            buttonRestart = new Button();
+            buttonCloseApp = new Button();
             SuspendLayout();
             // 
             // labelTitle
@@ -175,11 +177,33 @@
             labelCPUChoice.Size = new Size(0, 15);
             labelCPUChoice.TabIndex = 14;
             // 
+            // buttonRestart
+            // 
+            buttonRestart.Location = new Point(275, 260);
+            buttonRestart.Name = "buttonRestart";
+            buttonRestart.Size = new Size(130, 25);
+            buttonRestart.TabIndex = 15;
+            buttonRestart.Text = "New game";
+            buttonRestart.UseVisualStyleBackColor = true;
+            buttonRestart.Visible = false;
+            // 
+            // buttonCloseApp
+            // 
+            buttonCloseApp.Location = new Point(422, 260);
+            buttonCloseApp.Name = "buttonCloseApp";
+            buttonCloseApp.Size = new Size(130, 25);
+            buttonCloseApp.TabIndex = 16;
+            buttonCloseApp.Text = "Quit";
+            buttonCloseApp.UseVisualStyleBackColor = true;
+            buttonCloseApp.Visible = false;
+            // 
             // FormMainGame
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(buttonCloseApp);
+            Controls.Add(buttonRestart);
             Controls.Add(labelCPUChoice);
             Controls.Add(labelPlayerChoice);
             Controls.Add(labelEvents);
@@ -216,5 +240,7 @@
         private Label labelEvents;
         private Label labelPlayerChoice;
         private Label labelCPUChoice;
+        private Button buttonRestart;
+        private Button buttonCloseApp;
     }
 }

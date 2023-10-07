@@ -27,6 +27,7 @@ namespace Shotgun
                 ComputerBulletUpdater();
                 ShowEvents(gameLogic.CheckOutcome(player.PlayerChoice, computer.CpuChoice));
                 ShotgunButtonEnabler();
+                GameOver();
             }
             else
             {
@@ -43,17 +44,29 @@ namespace Shotgun
             labelPlayerChoice.Text = "Player blocked";
             labelCPUChoice.Text = CPUChoice(computer.GenerateCpuMove());
             ShowEvents(gameLogic.CheckOutcome(player.PlayerChoice, computer.CpuChoice));
+            GameOver();
         }
 
         private void buttonReload_Click(object sender, EventArgs e)
         {
-            player.Reload();
-            labelPlayerChoice.Text = "Player reloaded";
-            labelCPUChoice.Text = CPUChoice(computer.GenerateCpuMove());
-            PlayerBulletUpdater();
-            ComputerBulletUpdater();
-            ShowEvents(gameLogic.CheckOutcome(player.PlayerChoice, computer.CpuChoice));
-            ShotgunButtonEnabler();
+            if (player.AmountOfBullets < 3)
+            {
+                player.Reload();
+                labelPlayerChoice.Text = "Player reloaded";
+                labelCPUChoice.Text = CPUChoice(computer.GenerateCpuMove());
+                PlayerBulletUpdater();
+                ComputerBulletUpdater();
+                ShowEvents(gameLogic.CheckOutcome(player.PlayerChoice, computer.CpuChoice));
+                ShotgunButtonEnabler();
+                GameOver();
+            }
+            else
+            {
+                labelEvents.Text = "You're already at full capacity.";
+                labelPlayerChoice.Text = "";
+                labelCPUChoice.Text = "";
+            }
+
         }
 
         private void buttonShotgun_Click(object sender, EventArgs e)
@@ -134,6 +147,19 @@ namespace Shotgun
         private void ShowEvents(string displayEvent)
         {
             labelEvents.Text = displayEvent;
+        }
+
+        private void GameOver()
+        {
+            if (!gameLogic.isOngoing)
+            {
+                buttonRestart.Visible = true;
+                buttonCloseApp.Visible = true;
+                buttonShoot.Enabled = false;
+                buttonBlock.Enabled = false;
+                buttonReload.Enabled = false;
+                buttonShotgun.Enabled = false;
+            }
         }
 
         #endregion
