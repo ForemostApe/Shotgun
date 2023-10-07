@@ -31,12 +31,12 @@
             {
                 return "You both reload!\nNothing happens!";
             }
-            if ((x == 1) && (y == 3)) //Här tar spelet slut, spelaren skjuter datorn.
+            if ((x == 1) && (y == 3))
             {
                 isOngoing = false;
                 return "You shot the computer while it was reloading!\nYou win!";
             }
-            if ((x == 3) && (y == 1)) //Här tar spelet slut, datorn skjuter spelaren.
+            if ((x == 3) && (y == 1))
             {
                 isOngoing = false;
                 return "The computer shot you while you were reloading!\nYou lose!";

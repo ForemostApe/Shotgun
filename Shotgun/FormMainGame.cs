@@ -19,12 +19,11 @@ namespace Shotgun
         {
             if (player.AmountOfBullets > 0)
             {
-                player.Shoot();
+                ShotgunButtonEnabler(player.Shoot());
                 labelPlayerChoice.Text = "Player shot";
                 labelCPUChoice.Text = CPUChoice(computer.GenerateCpuMove());
                 ShowEvents(gameLogic.CheckOutcome(player.PlayerChoice, computer.CpuChoice));
                 BulletUpdater();
-                ShotgunButtonEnabler();
                 GameOver();
             }
             else
@@ -37,7 +36,7 @@ namespace Shotgun
 
         private void buttonBlock_Click(object sender, EventArgs e)
         {
-            player.Block();
+            ShotgunButtonEnabler(player.Block());
             labelPlayerChoice.Text = "Player blocked";
             labelCPUChoice.Text = CPUChoice(computer.GenerateCpuMove());
             ShowEvents(gameLogic.CheckOutcome(player.PlayerChoice, computer.CpuChoice));
@@ -49,12 +48,11 @@ namespace Shotgun
         {
             if (player.AmountOfBullets < 3)
             {
-                player.Reload();
+                ShotgunButtonEnabler(player.Reload());
                 labelPlayerChoice.Text = "Player reloaded";
                 labelCPUChoice.Text = CPUChoice(computer.GenerateCpuMove());
                 ShowEvents(gameLogic.CheckOutcome(player.PlayerChoice, computer.CpuChoice));
                 BulletUpdater();
-                ShotgunButtonEnabler();
                 GameOver();
             }
             else
@@ -84,7 +82,7 @@ namespace Shotgun
         {
             this.Close();
         }
-        
+
         #endregion
 
         #region Methods
@@ -110,8 +108,8 @@ namespace Shotgun
 
         private void BulletUpdater()
 
-            //Egentligen skulle jag vilja kunna skjuta in en string som anger antingen 'player' eller 'computer' och peta in den så det inte behövs två if-satser
-            //men står helt still just nu.
+        //Egentligen skulle jag vilja kunna skjuta in en string som anger antingen 'player' eller 'computer' och peta in den så det inte behövs två if-satser
+        //men står helt still just nu.
         {
             if (player.AmountOfBullets == 0)
             {
@@ -149,9 +147,9 @@ namespace Shotgun
 
         }
 
-        private void ShotgunButtonEnabler()
+        private void ShotgunButtonEnabler(int x)
         {
-            if (player.AmountOfBullets >= 3) buttonShotgun.Enabled = true;
+            if (x >= 3) buttonShotgun.Enabled = true;
             else buttonShotgun.Enabled = false;
         }
 

@@ -16,19 +16,22 @@
         public int Shoot()
         {
             PlayerChoice = 1;
-            return AmountOfBullets = gameLogic.Shoot(AmountOfBullets);
+            AmountOfBullets = gameLogic.Shoot(AmountOfBullets);
+            return AmountOfBullets;
         }
 
-        public void Block()
+        public int Block()
         {
             PlayerChoice = 2;
+            return AmountOfBullets;
         }
 
-        public void Reload()
+        public int Reload()
         { 
             PlayerChoice = 3;
-            if (AmountOfBullets < 3);
-            AmountOfBullets = gameLogic.Reload(AmountOfBullets);
+            if (AmountOfBullets < 3) AmountOfBullets = gameLogic.Reload(AmountOfBullets);
+            return AmountOfBullets;
+
         }
 
         public void Shotgun()
