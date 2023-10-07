@@ -71,7 +71,19 @@ namespace Shotgun
 
         private void buttonShotgun_Click(object sender, EventArgs e)
         {
+            player.Shotgun();
+            labelPlayerChoice.Text = "Player used shotgun";
+            labelCPUChoice.Text = CPUChoice(computer.GenerateCpuMove());
+            PlayerBulletUpdater();
+            ComputerBulletUpdater();
+            ShowEvents(gameLogic.CheckOutcome(player.PlayerChoice, computer.CpuChoice));
+            GameOver();
+        }
 
+
+        private void buttonRestart_Click(object sender, EventArgs e)
+        {
+            NewGame();
         }
 
         #endregion
@@ -93,7 +105,7 @@ namespace Shotgun
             }
             else
             {
-                return "Shotgun!";
+                return "CPU used shotgun";
             }
         }
 
@@ -162,6 +174,36 @@ namespace Shotgun
             }
         }
 
+        private void NewGame()
+        {
+            gameLogic.isOngoing = true;
+
+            buttonRestart.Visible = false;
+            buttonCloseApp.Visible = false;
+            buttonShoot.Enabled = true;
+            buttonBlock.Enabled = true;
+            buttonReload.Enabled = true;
+            buttonShotgun.Enabled = true;
+
+            computer.CpuChoice = 0;
+            computer.AmountOfBullets = 0;
+            player.PlayerChoice = 0;
+            player.AmountOfBullets = 0;
+
+            labelCPUChoice.Text = "";
+            labelPlayerChoice.Text = "";
+
+            labelEvents.Text = "";
+
+            PlayerBulletUpdater();
+            ComputerBulletUpdater();
+        }
+
         #endregion
+
+        private void buttonCloseApp_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -186,6 +186,7 @@
             buttonRestart.Text = "New game";
             buttonRestart.UseVisualStyleBackColor = true;
             buttonRestart.Visible = false;
+            buttonRestart.Click += buttonRestart_Click;
             // 
             // buttonCloseApp
             // 
@@ -196,6 +197,7 @@
             buttonCloseApp.Text = "Quit";
             buttonCloseApp.UseVisualStyleBackColor = true;
             buttonCloseApp.Visible = false;
+            buttonCloseApp.Click += buttonCloseApp_Click;
             // 
             // FormMainGame
             // 

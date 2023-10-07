@@ -19,14 +19,22 @@ namespace Shotgun.Classes
 
         public int GenerateCpuMove()
         {
-            Random random = new Random();
-            CpuChoice = random.Next(1, 4);
+            if (AmountOfBullets == 3)
+            {
+                CpuChoice = 4;
+                Shotgun();
+            }
+            else
+            {
 
-            if (AmountOfBullets == 3) Shotgun();
-            else if (CpuChoice == 1 && AmountOfBullets > 0) Shoot();
-            //else if (CpuChoice == 2) Block();
-            else if (CpuChoice == 3 && AmountOfBullets < 3) Reload();
-            else GenerateCpuMove();
+                Random random = new Random();
+                CpuChoice = random.Next(1, 4);
+
+                if (CpuChoice == 1 && AmountOfBullets > 0) Shoot();
+                else if (CpuChoice == 3 && AmountOfBullets < 3) Reload();
+                else GenerateCpuMove();
+
+            }
 
             return CpuChoice;
         }
@@ -38,19 +46,18 @@ namespace Shotgun.Classes
             AmountOfBullets = gameLogic.Shoot(AmountOfBullets);
         }
 
-        //private void Block()
-        //{
-        //}
-
         public void Reload()
         {
             GameLogic gameLogic = new GameLogic();
             AmountOfBullets = gameLogic.Reload(AmountOfBullets);
         }
-        private void Shotgun()
+
+        public void Shotgun()
         {
-            MessageBox.Show("Shotgun");
+            GameLogic gameLogic = new GameLogic();
+            AmountOfBullets = gameLogic.Shotgun(AmountOfBullets);
         }
+
     }
 
 

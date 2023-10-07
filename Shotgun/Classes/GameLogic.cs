@@ -57,6 +57,11 @@ namespace Shotgun.Classes
                 return "You reload and the computer blocks!\nNothing happens!";
             }
 
+            if ((x == 4) && (y == 4))
+            {
+                return "You both blast shotguns!\nNothing happens!";
+            }
+
             if ((x == 4) && (y != 4))
             {
                 isOngoing = false;
@@ -70,30 +75,6 @@ namespace Shotgun.Classes
             return "Something went wrong!";
         }
 
-        //public void CheckOutcome()
-        //{
-        //    Player player = new Player();
-        //    Computer computer = new Computer();
-
-        //    if ((player.PlayerChoice == 1) && (computer.CpuChoice == 1) || (player.PlayerChoice == 1 && computer.CpuChoice == 2))
-        //    {
-        //        Shoot(player.AmountOfBullets);
-        //        Shoot(computer.AmountOfBullets);
-        //    }
-        //    else if  (player.PlayerChoice == 2 && computer.CpuChoice == 1)
-        //    {
-        //        Shoot(computer.AmountOfBullets);
-        //    }
-        //    else if ((player.PlayerChoice == 1) && (computer.CpuChoice == 3)) //Här tar spelet slut, spelaren skjuter datorn.
-        //    {
-        //        GameOver("You");
-        //    }
-        //    else if ((player.PlayerChoice == 3) && (computer.CpuChoice == 1)) //Här tar spelet slut, datorn skjuter spelaren.
-        //    {
-        //        GameOver("The computer");
-        //    }
-        //}
-
         public int Shoot(int bulletAmount)
         {
             if (bulletAmount > 0) bulletAmount--;
@@ -104,11 +85,11 @@ namespace Shotgun.Classes
         {
             if (bulletAmount < 3) bulletAmount++;
             return bulletAmount;
-            }
+        }
 
-        //public void GameOver(string winner)
-        //{
-        //    MessageBox.Show($"{winner} won!");
-        //}
+        public int Shotgun(int bulletAmount)
+        {
+            return bulletAmount = 0;
+        }
     }
 }
