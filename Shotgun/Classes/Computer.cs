@@ -24,16 +24,15 @@ namespace Shotgun.Classes
                 CpuChoice = 4;
                 Shotgun();
             }
+
             else
             {
-
                 Random random = new Random();
                 CpuChoice = random.Next(1, 4);
 
                 if (CpuChoice == 1 && AmountOfBullets > 0) Shoot();
                 else if (CpuChoice == 3 && AmountOfBullets < 3) Reload();
                 else GenerateCpuMove();
-
             }
 
             return CpuChoice;
@@ -57,9 +56,5 @@ namespace Shotgun.Classes
             GameLogic gameLogic = new GameLogic();
             AmountOfBullets = gameLogic.Shotgun(AmountOfBullets);
         }
-
     }
-
-
-
 }

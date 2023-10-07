@@ -23,8 +23,8 @@ namespace Shotgun.Classes
 
         public int Shoot()
         {
-                PlayerChoice = 1;
-                return AmountOfBullets = gameLogic.Shoot(AmountOfBullets);
+            PlayerChoice = 1;
+            return AmountOfBullets = gameLogic.Shoot(AmountOfBullets);
         }
 
         public void Block()
@@ -36,14 +36,12 @@ namespace Shotgun.Classes
         { 
             PlayerChoice = 3;
             if (AmountOfBullets < 3);
-            GameLogic gameLogic = new GameLogic();
             AmountOfBullets = gameLogic.Reload(AmountOfBullets);
         }
 
         public void Shotgun()
         {
             PlayerChoice = 4;
-            GameLogic gameLogic = new GameLogic();
             AmountOfBullets = gameLogic.Shotgun(AmountOfBullets);
         }
     }

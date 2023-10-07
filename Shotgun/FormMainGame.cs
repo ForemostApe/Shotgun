@@ -44,6 +44,8 @@ namespace Shotgun
             labelPlayerChoice.Text = "Player blocked";
             labelCPUChoice.Text = CPUChoice(computer.GenerateCpuMove());
             ShowEvents(gameLogic.CheckOutcome(player.PlayerChoice, computer.CpuChoice));
+            PlayerBulletUpdater();
+            ComputerBulletUpdater();
             GameOver();
         }
 
