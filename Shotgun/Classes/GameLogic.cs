@@ -11,61 +11,35 @@
         public string CheckOutcome(int x, int y)
         {
 
-            if ((x == 1) && (y == 1))
-            {
-                return "You both shoot!\nNothing happens!";
-            }
-            if ((x == 2) && (y == 2))
-            {
-                return "You both block!\nNothing happens!";
-            }
-            if (x == 2 && y == 1)
-            {
-                return "You blocked the computers shot!\nNothing happens!";
-            }
-            if (x == 1 && y == 2)
-            {
-                return "The computer blocked your shot!\nNothing happens!";
-            }
-            if ((x == 3) && (y == 3))
-            {
-                return "You both reload!\nNothing happens!";
-            }
-            if ((x == 1) && (y == 3))
+            if ((x == 1) && (y == 1)) return "You both shoot!\nNothing happens!";
+            else if (x == 1 && y == 2) return "The computer blocked your shot!\nNothing happens!";
+            else if ((x == 1) && (y == 3))
             {
                 isOngoing = false;
                 return "You shot the computer while it was reloading!\nYou win!";
             }
-            if ((x == 3) && (y == 1))
+            else if (x == 2 && y == 1) return "You blocked the computers shot!\nNothing happens!";
+            else if ((x == 2) && (y == 2)) return "You both block!\nNothing happens!";
+            else if ((x == 2) && (y == 3)) return "You block and the computer reloads!\nNothing happens!";
+            else if ((x == 3) && (y == 1))
             {
                 isOngoing = false;
                 return "The computer shot you while you were reloading!\nYou lose!";
             }
-            if ((x == 2) && (y == 3))
-            {
-                return "You block and the computer reloads!\nNothing happens!";
-            }
-            if ((x == 3) && y == 2)
-            {
-                return "You reload and the computer blocks!\nNothing happens!";
-            }
-
-            if ((x == 4) && (y == 4))
-            {
-                return "You both blast shotguns!\nNothing happens!";
-            }
-
-            if ((x == 4) && (y != 4))
+            else if ((x == 3) && y == 2) return "You reload and the computer blocks!\nNothing happens!";
+            else if ((x == 3) && (y == 3)) return "You both reload!\nNothing happens!";
+            else if ((x == 4) && (y == 4)) return "You both blast shotguns!\nNothing happens!";
+            else if ((x == 4) && (y != 4))
             {
                 isOngoing = false;
                 return "You blast the computer with a shotgun-blast!\nYou win!";
             }
-            if ((x != 4) && (y == 4))
+            else if ((x != 4) && (y == 4))
             {
                 isOngoing = false;
                 return "The computer blasts you with a shotgun-blast!\nYou lose!";
             }
-            return "Something went wrong!";
+            else return "Something went wrong!";
         }
 
         public int Shoot(int bulletAmount)
