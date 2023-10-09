@@ -8,9 +8,9 @@
             isOngoing = true;
         }
 
+        //Borde man dela upp den här i en metod för meddelandena och en för kontroll av utfallet?
         public string CheckOutcome(int x, int y)
         {
-
             if ((x == 1) && (y == 1)) return "You both shoot!\nNothing happens!";
             else if (x == 1 && y == 2) return "The computer blocked your shot!\nNothing happens!";
             else if ((x == 1) && (y == 3))
@@ -41,7 +41,6 @@
             }
             else return "Something went wrong!";
         }
-
         public int Shoot(int bulletAmount)
         {
             if (bulletAmount > 0) bulletAmount--;

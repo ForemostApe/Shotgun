@@ -14,7 +14,6 @@ namespace Shotgun
         }
 
         #region Button-events
-
         private void buttonShoot_Click(object sender, EventArgs e)
         {
             if (player.AmountOfBullets > 0)
@@ -33,7 +32,6 @@ namespace Shotgun
                 labelCPUChoice.Text = "";
             }
         }
-
         private void buttonBlock_Click(object sender, EventArgs e)
         {
             ShotgunButtonEnabler(player.Block());
@@ -43,7 +41,6 @@ namespace Shotgun
             BulletUpdater();
             GameOver();
         }
-
         private void buttonReload_Click(object sender, EventArgs e)
         {
             if (player.AmountOfBullets < 3)
@@ -62,7 +59,6 @@ namespace Shotgun
                 labelCPUChoice.Text = "";
             }
         }
-
         private void buttonShotgun_Click(object sender, EventArgs e)
         {
             player.Shotgun();
@@ -72,79 +68,37 @@ namespace Shotgun
             ShowEvents(gameLogic.CheckOutcome(player.PlayerChoice, computer.CpuChoice));
             GameOver();
         }
-
         private void buttonRestart_Click(object sender, EventArgs e)
         {
             NewGame();
         }
-
         private void buttonCloseApp_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
         #endregion
 
         #region Methods
         private string CPUChoice(int x)
         {
-            if (x == 1)
-            {
-                return "CPU shot";
-            }
-            else if (x == 2)
-            {
-                return "CPU blocked";
-            }
-            else if (x == 3)
-            {
-                return "CPU reloaded";
-            }
-            else
-            {
-                return "CPU used shotgun";
-            }
+            if (x == 1) return "CPU shot";
+            else if (x == 2) return "CPU blocked";
+            else if (x == 3) return "CPU reloaded";
+            else return "CPU used shotgun";
         }
-
         private void BulletUpdater()
-
-        //Egentligen skulle jag vilja kunna skjuta in en string som anger antingen 'player' eller 'computer' och peta in den så det inte behövs två if-satser
-        //men står helt still just nu.
         {
-            if (player.AmountOfBullets == 0)
-            {
-                labelPlayerBulletCount.Text = "";
-            }
-            else if (player.AmountOfBullets == 1)
-            {
-                labelPlayerBulletCount.Text = "⦿";
-            }
-            else if (player.AmountOfBullets == 2)
-            {
-                labelPlayerBulletCount.Text = "⦿ ⦿";
-            }
-            else if (player.AmountOfBullets == 3)
-            {
-                labelPlayerBulletCount.Text = "⦿ ⦿ ⦿";
-            }
+            if (player.AmountOfBullets == 0) labelPlayerBulletCount.Text = "";
+            else if (player.AmountOfBullets == 1) labelPlayerBulletCount.Text = "⦿";
+            else if (player.AmountOfBullets == 2) labelPlayerBulletCount.Text = "⦿ ⦿";
+            else if (player.AmountOfBullets == 3) labelPlayerBulletCount.Text = "⦿ ⦿ ⦿";
 
-            if (computer.AmountOfBullets == 0)
-            {
-                labelCPUBulletCount.Text = "";
-            }
-            else if (computer.AmountOfBullets == 1)
-            {
-                labelCPUBulletCount.Text = "⦿";
-            }
-            else if (computer.AmountOfBullets == 2)
-            {
-                labelCPUBulletCount.Text = "⦿ ⦿";
-            }
-            else if (computer.AmountOfBullets == 3)
-            {
-                labelCPUBulletCount.Text = "⦿ ⦿ ⦿";
-            }
+            if (computer.AmountOfBullets == 0) labelCPUBulletCount.Text = "";
+            else if (computer.AmountOfBullets == 1) labelCPUBulletCount.Text = "⦿";
+            else if (computer.AmountOfBullets == 2) labelCPUBulletCount.Text = "⦿ ⦿";
+            else if (computer.AmountOfBullets == 3) labelCPUBulletCount.Text = "⦿ ⦿ ⦿";
 
+            //Egentligen skulle jag vilja kunna skjuta in en string som anger antingen 'player' eller 'computer' och peta in den så det inte behövs två if-satser
         }
 
         private void ShotgunButtonEnabler(int x)
