@@ -79,15 +79,18 @@ namespace Shotgun
         #endregion
 
         #region Methods
-        private string CPUChoice(int x)
+
+        //Den här metoden kanske borde ligga i Computer-klassen?
+        private string CPUChoice(int returnedCPUChoice)
         {
-            if (x == 1) return "CPU shot";
-            else if (x == 2) return "CPU blocked";
-            else if (x == 3) return "CPU reloaded";
+            if (returnedCPUChoice == 1) return "CPU shot";
+            else if (returnedCPUChoice == 2) return "CPU blocked";
+            else if (returnedCPUChoice == 3) return "CPU reloaded";
             else return "CPU used shotgun";
         }
         private void BulletUpdater()
         {
+            //Egentligen skulle jag vilja kunna skjuta in en string som anger antingen 'player' eller 'computer' och peta in den så det inte behövs två if-satser
             if (player.AmountOfBullets == 0) labelPlayerBulletCount.Text = "";
             else if (player.AmountOfBullets == 1) labelPlayerBulletCount.Text = "⦿";
             else if (player.AmountOfBullets == 2) labelPlayerBulletCount.Text = "⦿ ⦿";
@@ -97,13 +100,11 @@ namespace Shotgun
             else if (computer.AmountOfBullets == 1) labelCPUBulletCount.Text = "⦿";
             else if (computer.AmountOfBullets == 2) labelCPUBulletCount.Text = "⦿ ⦿";
             else if (computer.AmountOfBullets == 3) labelCPUBulletCount.Text = "⦿ ⦿ ⦿";
-
-            //Egentligen skulle jag vilja kunna skjuta in en string som anger antingen 'player' eller 'computer' och peta in den så det inte behövs två if-satser
         }
 
-        private void ShotgunButtonEnabler(int x)
+        private void ShotgunButtonEnabler(int amountOfBullets)
         {
-            if (x >= 3) buttonShotgun.Enabled = true;
+            if (amountOfBullets >= 3) buttonShotgun.Enabled = true;
             else buttonShotgun.Enabled = false;
         }
 
@@ -112,7 +113,8 @@ namespace Shotgun
             labelEvents.Text = displayEvent;
         }
 
-        private void GameOver() //Det här känns som det borde vara en While-loop och inte en metod som måste initieras hela tiden.
+        //Det här känns som det borde vara en While-loop och inte en metod som måste initieras hela tiden.
+        private void GameOver() 
         {
             if (!gameLogic.isOngoing)
             {
@@ -128,24 +130,19 @@ namespace Shotgun
         private void NewGame()
         {
             gameLogic.isOngoing = true;
-
+            computer.CpuChoice = 0;
+            computer.AmountOfBullets = 0;
+            player.PlayerChoice = 0;
+            player.AmountOfBullets = 0;
             buttonRestart.Visible = false;
             buttonCloseApp.Visible = false;
             buttonShoot.Enabled = true;
             buttonBlock.Enabled = true;
             buttonReload.Enabled = true;
             buttonShotgun.Enabled = true;
-
-            computer.CpuChoice = 0;
-            computer.AmountOfBullets = 0;
-            player.PlayerChoice = 0;
-            player.AmountOfBullets = 0;
-
             labelCPUChoice.Text = "";
             labelPlayerChoice.Text = "";
-
             labelEvents.Text = "";
-
             BulletUpdater();
         }
         #endregion
