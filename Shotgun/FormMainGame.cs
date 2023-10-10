@@ -1,4 +1,5 @@
 ﻿using Shotgun.Classes;
+using System.Numerics;
 
 namespace Shotgun
 {
@@ -88,19 +89,8 @@ namespace Shotgun
             else if (returnedCPUChoice == 3) return "CPU reloaded";
             else return "CPU used shotgun";
         }
-        private void BulletUpdater()
-        {
-            //Egentligen skulle jag vilja kunna skjuta in en string som anger antingen 'player' eller 'computer' och peta in den så det inte behövs två if-satser
-            if (player.AmountOfBullets == 0) labelPlayerBulletCount.Text = "";
-            else if (player.AmountOfBullets == 1) labelPlayerBulletCount.Text = "⦿";
-            else if (player.AmountOfBullets == 2) labelPlayerBulletCount.Text = "⦿ ⦿";
-            else if (player.AmountOfBullets == 3) labelPlayerBulletCount.Text = "⦿ ⦿ ⦿";
 
-            if (computer.AmountOfBullets == 0) labelCPUBulletCount.Text = "";
-            else if (computer.AmountOfBullets == 1) labelCPUBulletCount.Text = "⦿";
-            else if (computer.AmountOfBullets == 2) labelCPUBulletCount.Text = "⦿ ⦿";
-            else if (computer.AmountOfBullets == 3) labelCPUBulletCount.Text = "⦿ ⦿ ⦿";
-        }
+        
 
         private void ShotgunButtonEnabler(int amountOfBullets)
         {
@@ -111,6 +101,20 @@ namespace Shotgun
         private void ShowEvents(string displayEvent)
         {
             labelEvents.Text = displayEvent;
+        }
+
+        private void BulletUpdater()
+        {
+            //Egentligen skulle jag vilja kunna skjuta in en string som anger antingen 'player' eller 'computer' och peta in den så det inte behövs två if-satser.
+            if (player.AmountOfBullets == 0) labelPlayerBulletCount.Text = "";
+            else if (player.AmountOfBullets == 1) labelPlayerBulletCount.Text = "⦿";
+            else if (player.AmountOfBullets == 2) labelPlayerBulletCount.Text = "⦿ ⦿";
+            else if (player.AmountOfBullets == 3) labelPlayerBulletCount.Text = "⦿ ⦿ ⦿";
+
+            if (computer.AmountOfBullets == 0) labelCPUBulletCount.Text = "";
+            else if (computer.AmountOfBullets == 1) labelCPUBulletCount.Text = "⦿";
+            else if (computer.AmountOfBullets == 2) labelCPUBulletCount.Text = "⦿ ⦿";
+            else if (computer.AmountOfBullets == 3) labelCPUBulletCount.Text = "⦿ ⦿ ⦿";
         }
 
         //Det här känns som det borde vara en While-loop och inte en metod som måste initieras hela tiden.
