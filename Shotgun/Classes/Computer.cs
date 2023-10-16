@@ -25,7 +25,7 @@ namespace Shotgun.Classes
                 Random random = new Random();
                 CpuChoice = random.Next(1, 4);
                 if (CpuChoice == 1 && AmountOfBullets > 0) Shoot();
-                else if (CpuChoice == 2); //Det här är en konstig lösning. Är detta okay?!
+                else if (CpuChoice == 2);
                 else if (CpuChoice == 3 && AmountOfBullets < 3) Reload();
                 else GenerateCpuMove();
             }
@@ -36,10 +36,6 @@ namespace Shotgun.Classes
             AmountOfBullets = gameLogic.Shoot(AmountOfBullets);
         }
 
-        //private void Block()
-        //{
-        //    Den här metoden gör ingenting.
-        //}
         public void Reload()
         {
             AmountOfBullets = gameLogic.Reload(AmountOfBullets);

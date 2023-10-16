@@ -10,8 +10,6 @@ namespace Shotgun.Classes
             isOngoing = true;
         }
 
-        //Borde man dela upp den här i en metod för meddelandena och en för kontroll av utfallet?
-
         public string CheckOutcome(int x, int y)
         {
             switch ((x, y))
