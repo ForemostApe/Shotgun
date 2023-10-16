@@ -2,7 +2,7 @@
 
 namespace Shotgun.Classes
 {
-    public class Computer
+    public class Computer : Player
     {
         public int CpuChoice { get; set; }
         public int AmountOfBullets { get; set; }
@@ -24,26 +24,12 @@ namespace Shotgun.Classes
             {
                 Random random = new Random();
                 CpuChoice = random.Next(1, 4);
-                if (CpuChoice == 1 && AmountOfBullets > 0) Shoot();
-                else if (CpuChoice == 2);
-                else if (CpuChoice == 3 && AmountOfBullets < 3) Reload();
+                if (CpuChoice == 1 && AmountOfBullets > 0) AmountOfBullets = updateBullets(CpuChoice, AmountOfBullets);
+                else if (CpuChoice == 2) AmountOfBullets = updateBullets(CpuChoice, AmountOfBullets);
+                else if (CpuChoice == 3 && AmountOfBullets < 3) AmountOfBullets = updateBullets(CpuChoice, AmountOfBullets);
                 else GenerateCpuMove();
             }
             return CpuChoice;
-        }
-        private void Shoot()
-        {
-            AmountOfBullets = gameLogic.Shoot(AmountOfBullets);
-        }
-
-        public void Reload()
-        {
-            AmountOfBullets = gameLogic.Reload(AmountOfBullets);
-        }
-
-        public void Shotgun()
-        {
-            AmountOfBullets = gameLogic.Shotgun(AmountOfBullets);
         }
     }
 }

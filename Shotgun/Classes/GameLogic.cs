@@ -46,22 +46,5 @@ namespace Shotgun.Classes
                     return "Something went wrong!";
             }
         }
-
-        public int Shoot(int bulletAmount)
-        {
-            if (bulletAmount > 0) bulletAmount--;
-            return bulletAmount;
-        }
-
-        public int Reload(int bulletAmount)
-        {
-            if (bulletAmount < 3) bulletAmount++;
-            return bulletAmount;
-        }
-
-        public int Shotgun(int bulletAmount)
-        {
-            return bulletAmount = 0;
-        }
     }
 }
