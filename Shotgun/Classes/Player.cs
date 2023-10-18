@@ -6,15 +6,10 @@
         public int PlayerChoice { get; set; }
         public int AmountOfBullets { get; set; }
 
-        GameLogic gameLogic = new GameLogic();
-        public Player()
-        {
-            
-        }
         public int Shoot()
         {
             PlayerChoice = 1;
-            AmountOfBullets = updateBullets(PlayerChoice, AmountOfBullets);
+            AmountOfBullets = UpdateBullets(PlayerChoice, AmountOfBullets);
             return AmountOfBullets;
         }
         public int Block()
@@ -25,16 +20,16 @@
         public int Reload()
         { 
             PlayerChoice = 3;
-            if (AmountOfBullets < 3) AmountOfBullets = updateBullets(PlayerChoice, AmountOfBullets);
+            if (AmountOfBullets < 3) AmountOfBullets = UpdateBullets(PlayerChoice, AmountOfBullets);
             return AmountOfBullets;
         }
         public void Shotgun()
         {
             PlayerChoice = 4;
-            AmountOfBullets = updateBullets(PlayerChoice, AmountOfBullets);
+            AmountOfBullets = UpdateBullets(PlayerChoice, AmountOfBullets);
         }
 
-        public int updateBullets(int choice, int bullets)
+        public int UpdateBullets(int choice, int bullets)
         {
             if (choice == 1)
             {
